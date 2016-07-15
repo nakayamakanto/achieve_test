@@ -1,11 +1,12 @@
         <section class="main-header">
             <img src="<%= asset_path 'achieve.png' %>">
         </section>
-        <!-- 追記部分 開始 -->
-        <% flash.each do |key, value| %>
-            <%= content_tag(:div, value, class: "#{key}") %>
-        <% end %>
+        <!-- これでもnotice表示できる！ 開始 -->
+        <!--<% flash.each do |key, value| %>-->
+        <!--    <%= content_tag(:div, value, class: "#{key}") %>-->
+        <!--<% end %>-->
         <!-- 追記部分 終了-->
+        
         <section class="about">
             <h1>About Achieve</h1>
             <p>

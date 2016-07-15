@@ -1,21 +1,16 @@
 <div class="container">
-    <div class="wrapper col-mod-8 col-mod-offset-2 col-sm-10 col-sm-offset-1">
-        <!-- 追記部分 開始 -->
-        <% flash.each do |key, value| %>
-            <%= content_tag(:div, value, class: "#{key}") %>
-        <% end %>
-        <!-- 追記部分 終了-->
+    <div class="blog-content wrapper col-mod-8 col-mod-offset-2 col-sm-10 col-sm-offset-1">
         
         <h1>Blogs!</h1>
         
-        <%= link_to "write a new blog", new_blog_path , data: {confirm: "are you sure?"} %>
+        <%= link_to "新規投稿", new_blog_path, class: "btn btn-default btn-primary btn-block" %>
         
         <% @blogs.each do |blog| %>
             <div class="row">
                 <p><%= blog.title %></p>
                 <p><%= blog.content %></p>
-                <%= link_to "edit this blog", edit_blog_path(blog.id), data: {confirm: "are you sure?"} %>
-                <%= link_to "delete this blog", "/blogs/#{blog.id}", method: :delete, data: {confirm: "are you sure?"} %>
+                <%= link_to "投稿編集", edit_blog_path(blog.id), class: "btn btn-default btn-success btn-sm" %>
+                <%= link_to "削除", "/blogs/#{blog.id}", method: :delete, data: {confirm: "この投稿を削除していいのですね？"}, class: "btn btn-default btn-danger btn-sm" %>
             </div>
         <% end %>
     </div>

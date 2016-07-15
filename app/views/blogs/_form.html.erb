@@ -10,12 +10,12 @@
 <% end %>
 
 <%= form_for(@blog, url: chose_create_or_update) do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control" %>
-    <br>
-    <%= f.label :content %>
-    <%= f.text_field :content, class: "form-control" %>
-    <br>
+    <div class="form-group">
+        <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
+    </div>
+    <div class="form-group">
+    <%= f.text_field :content, class: "form-control", placeholder: "内容" %>
+    </div>
     <%= f.submit "登録", class: "btn btn-primary btn-block" %>
 <% end %>
 

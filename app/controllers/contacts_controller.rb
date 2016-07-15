@@ -12,6 +12,7 @@ class ContactsController < ApplicationController
         if @contact.save
             redirect_to root_path, notice: "お問い合わせありがとうございました"
         else
+            
             render :action => "new"
         end
     end
@@ -19,7 +20,7 @@ class ContactsController < ApplicationController
     def confirm
         @contact=Contact.new(contacts_params)
         if @contact.invalid?
-            redirect_to :action => "new"
+            render :action => "new"
         end
     end
     
