@@ -44,9 +44,12 @@ group :development, :test do
   
   # to know if the app sent the mail
   # gem 'letter_opener'
+
+  gem "pry-rails"
+  gem "better_errors"
 end
 
-gem "pry-rails"
+
 gem 'twitter-bootstrap-rails'
 gem "jquery-turbolinks"
 gem "devise"
