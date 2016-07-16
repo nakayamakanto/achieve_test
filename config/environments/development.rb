@@ -17,12 +17,13 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   
   #config the mailer method
-  # config.action_mailer.delivery_method = :smtp
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.delivery_method = :test
+  # config.action_mailer.delivery_method = :letter_opener
 
   # set the default url options
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000, protocol: 'https' }
-  config.action_mailer.delivery_method = :smtp
+  # for local environment, PC refuses https 
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000, protocol: 'http' }
   
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -51,5 +51,7 @@ gem 'twitter-bootstrap-rails'
 gem "jquery-turbolinks"
 gem "devise"
 gem "faker"
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'cancan'
 
 gem 'rails_12factor', group: :production
