@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="blog-content wrapper col-mod-8 col-mod-offset-2 col-sm-10 col-sm-offset-1">
+        
+        <h1>Blog</h1>
+        
+        <%= link_to "新規投稿", new_blog_path, class: "btn btn-default btn-primary btn-block" %>
+        
+            <div class="row">
+                <p>ユーザーID:<%= @blog.user_id %></p>
+                <p>ユーザー名:<%= @blog.user.name %></p>
+                <p><%= @blog.title %></p>
+                <p><%= @blog.content %></p>
+                <%= link_to "投稿編集", edit_blog_path(@blog.id), class: "btn btn-default btn-success btn-sm" %>
+                <%= link_to "削除", "/blogs/#{@blog.id}", method: :delete, data: {confirm: "この投稿を削除していいのですね？"}, class: "btn btn-default btn-danger btn-sm" %>
+            </div>
+        <br>
+        <%= link_to "go to index page", blogs_path %> 
+    </div>
+</div>

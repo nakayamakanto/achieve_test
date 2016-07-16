@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
+  resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy, :show] do
     collection do
       post :confirm
     end

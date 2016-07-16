@@ -11,6 +11,7 @@ class BlogsController < ApplicationController
             @blog=Blog.new(blogs_params)
         else
             @blog=Blog.new
+            @blog.user_id=current_user.id
         end
     end
     
@@ -54,9 +55,13 @@ class BlogsController < ApplicationController
         redirect_to "/blogs", notice: "投稿を削除しました"
     end
     
+    def show
+        @blog=Blog.find(params[:id])
+    end
+    
     private
     def blogs_params
-        params.require(:blog).permit(:title,:content)
+        params.require(:blog).permit(:title,:content,:user_id)
     end
     
     def set_blog

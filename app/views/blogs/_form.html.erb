@@ -11,6 +11,13 @@
 
 <%= form_for(@blog, url: chose_create_or_update) do |f| %>
     <div class="form-group">
+        <%= f.hidden_field :user_id %>
+        <p>ユーザーID:<%= @blog[:user_id] %></p>
+    </div>
+    <div class="form-group">
+        <p>お名前:<%= User.find(@blog[:user_id]).name %></p>
+    </div>
+    <div class="form-group">
         <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
     </div>
     <div class="form-group">
@@ -18,5 +25,5 @@
     </div>
     <%= f.submit "登録", class: "btn btn-primary btn-block" %>
 <% end %>
-
+<br>
 <%= link_to "go to index page", blogs_path %> 
