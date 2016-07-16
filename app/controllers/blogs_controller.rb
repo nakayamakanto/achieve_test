@@ -21,6 +21,7 @@ class BlogsController < ApplicationController
         @blog.user_id=current_user.id
         if @blog.save
             redirect_to blogs_path, notice: "新規投稿しました"
+            MyMailer.sendmail_blog(@blog).deliver
         else
           render :action => "new"
         # redirect_to :action => "new":drops the information of @blog
