@@ -8,11 +8,6 @@
             <p><%= @contact.email %></p>
             <p><%= @contact.content %></p>
             <%= f.submit "OK", class: "btn btn-primary btn-box" %>
-        <% end %>
-        <%= form_for(@contact, url: new_contact_path, method: "get") do |f| %>
-            <%= f.hidden_field :name %>
-            <%= f.hidden_field :email %>
-            <%= f.hidden_field :content %>
             <%= f.submit "戻る", name: "back", class: "btn btn-primary btn-box" %>
         <% end %>
     </div>
