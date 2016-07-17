@@ -10,11 +10,6 @@
             <p>タイトル:<%= @blog.title %></p>
             <p>内容:<%= @blog.content %></p>
             <%= f.submit "OK", class: "btn btn-primary btn-block" %>
-        <% end %>
-        <%= form_for(@blog, url: new_blog_path, method: "get") do |f| %>
-            <%= f.hidden_field :user_id %>
-            <%= f.hidden_field :title %>
-            <%= f.hidden_field :content %>
             <%= f.submit "戻る", name: "back", class: "btn btn-primary btn-block" %>
         <% end %>
     </div>

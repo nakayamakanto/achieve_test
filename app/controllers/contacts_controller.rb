@@ -9,11 +9,15 @@ class ContactsController < ApplicationController
     
     def create
         @contact=Contact.new(contacts_params)
-        if @contact.save
-            redirect_to root_path, notice: "お問い合わせありがとうございました"
-            MyMailer.sendmail_contact(@contact).deliver
-        else
+        if params[:back]
             render :action => "new"
+        else
+            if @contact.save
+                redirect_to root_path, notice: "お問い合わせありがとうございました"
+                MyMailer.sendmail_contact(@contact).deliver
+            else
+                render :action => "new"
+            end
         end
     end
     
