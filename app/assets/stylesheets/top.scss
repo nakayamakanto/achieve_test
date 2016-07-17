@@ -73,7 +73,7 @@ header {
 }
 .navbar {
     background-color: transparent;
-    color: white;
+    color: red;
     margin-bottom: 0px;
 }
 .navbar-default {
@@ -177,3 +177,10 @@ header {
   text-align: center;
 }
 
+.notice{
+  color: black;
+}
+
+.alert{
+  color: red;
+}

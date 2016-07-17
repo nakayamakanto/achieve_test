@@ -1,7 +1,15 @@
-<%= form_for(@blog, url: chose_create_or_update) do |f| %>
+<% if @blog.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= @blog.errors.count %>件のエラーがあります</h2>
+        <ul>
+            <% @blog.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
 
-    <%= f.error_messages! %>
-    
+<%= form_for(@blog, url: chose_create_or_update) do |f| %>
     <div class="form-group">
         <%= f.hidden_field :user_id %>
         <p>ユーザーID:<%= @blog[:user_id] %></p>

@@ -40,8 +40,8 @@
               <% end %>
             </ul>
           </div><!-- /.navbar-collapse -->
-          <p class="notice navbar-brand"><%= notice %></p>
-          <p class="alert navbar-brand"><%= alert %></p>
+          <%= flash[:notice] %>
+          <%= flash[:alert] %>
         </div><!-- /.container-fluid -->
       </nav>
     </header>

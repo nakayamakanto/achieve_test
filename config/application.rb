@@ -24,7 +24,10 @@ module Achieve
     config.active_record.raise_in_transactional_callbacks = true
     
     #I don't like the div to the element next to the error sections
-    config.action_view.field_error_proc = Proc.new do |html_tag, instance| 
+    #config.action_view.field_error_proc = Proc.new do |html_tag, instance| 
+    #  html_tag
+    #end
+    config.action_view.field_error_proc = Proc.new do |html_tag, _| 
       html_tag
     end
   end
