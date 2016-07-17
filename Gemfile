@@ -45,8 +45,15 @@ group :development, :test do
   # to know if the app sent the mail
   # gem 'letter_opener'
 
-  gem "pry-rails"
   gem "better_errors"
+end
+
+group :development, :test do
+ gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
+ gem 'pry-doc'    # methodを表示
+ gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
+ gem 'pry-stack_explorer' # スタックをたどれる
+ gem 'dotenv-rails' #環境変数を入れてくれる
 end
 
 

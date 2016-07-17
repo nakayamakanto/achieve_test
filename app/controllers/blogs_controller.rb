@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_blog, only: [:edit, :update, :destroy]
+    before_action :set_blog, only: [:show, :edit, :update, :destroy]
     def index
         @blogs=Blog.all
     end
@@ -40,11 +40,11 @@ class BlogsController < ApplicationController
     end
     
     def edit
-        @blog=Blog.find(params[:id])
+        #@blog=Blog.find(params[:id])
     end
     
     def update
-        @blog=Blog.find(params[:id])
+        #@blog=Blog.find(params[:id])
         if @blog.update(blogs_params)
             # redirect_to :action => "index", notice: "update, done!"は何故か機能しない
             redirect_to blogs_path, notice: "投稿を変更しました"
@@ -55,13 +55,13 @@ class BlogsController < ApplicationController
     end
     
     def destroy
-        @blog=Blog.find(params[:id])
+        #@blog=Blog.find(params[:id])
         @blog.destroy
         redirect_to "/blogs", notice: "投稿を削除しました"
     end
     
     def show
-        @blog=Blog.find(params[:id])
+        #@blog=Blog.find(params[:id])
     end
     
     private
