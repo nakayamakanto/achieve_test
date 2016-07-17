@@ -9,5 +9,7 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
+# if /log/, the config bellow will be ignored
 !/log/.keep
 /tmp
+/.env
