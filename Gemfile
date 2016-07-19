@@ -32,14 +32,27 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#bootstrap base
 gem 'twitter-bootstrap-rails'
 gem "jquery-turbolinks"
+
+#authentication
 gem "devise"
+
+#for seeds
 gem "faker"
+
+#for admin page
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'cancan'
+
+#templates
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
