@@ -46,9 +46,7 @@ group :development, :test do
   # gem 'letter_opener'
 
   gem "better_errors"
-end
 
-group :development, :test do
  gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
  gem 'pry-doc'    # methodを表示
  gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
@@ -64,4 +62,6 @@ gem "faker"
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'cancan'
 
-gem 'rails_12factor', group: :production
+group :production do
+    gem 'rails_12factor'
+end

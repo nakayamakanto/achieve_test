@@ -17,7 +17,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   
   #config the mailer method
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :test
   # config.action_mailer.delivery_method = :test
   # config.action_mailer.delivery_method = :letter_opener
 
