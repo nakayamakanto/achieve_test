@@ -23,6 +23,7 @@ class BlogsController < ApplicationController
             render :action => "new"
         else
             if @blog.save
+                #redirect_to({action: :index}, notice: "新規投稿しました")とも書ける
                 redirect_to blogs_path, notice: "新規投稿しました"
                 MyMailer.sendmail_blog(@blog).deliver
             else

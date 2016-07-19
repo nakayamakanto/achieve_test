@@ -27,7 +27,8 @@ module Achieve
     #config.action_view.field_error_proc = Proc.new do |html_tag, instance| 
     #  html_tag
     #end
-    config.action_view.field_error_proc = Proc.new do |html_tag, _| 
+    #ここは、Proc.new{|html_tag, instance|  html_tag}としても同じ
+    config.action_view.field_error_proc = Proc.new do |html_tag, _|
       html_tag
     end
   end
