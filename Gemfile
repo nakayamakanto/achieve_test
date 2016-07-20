@@ -50,9 +50,14 @@ gem 'cancan'
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 
+#for SNS authentication
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+
+#image uploader
+gem 'carrierwave'
+gem 'rmagick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

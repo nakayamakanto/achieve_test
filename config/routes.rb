@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
-    sessions: "users/sessions",
     registrations: "users/registrations",
-    password: "users/passwords",
     omniauth_callbacks: "users/omniauth_callbacks"
+    #下記の２つがあると、ログアウトがうまくいかなくなる。おそらく、実際にはない/users/sessions_controllerやusers/passwords_controllerを探しに行ってしまうから
+    # sessions: "users/sessions",
+    # password: "users/passwords",
 }
   
   resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy, :show] do
