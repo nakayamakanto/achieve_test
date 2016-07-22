@@ -32,6 +32,33 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#bootstrap base
+gem 'twitter-bootstrap-rails'
+gem "jquery-turbolinks"
+
+#authentication
+gem "devise"
+
+#for seeds
+gem "faker"
+
+#for admin page
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'cancan'
+
+#templates
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
+
+#for SNS authentication
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+
+#image uploader
+gem 'carrierwave'
+gem 'rmagick'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -45,23 +72,16 @@ group :development, :test do
   # to know if the app sent the mail
   # gem 'letter_opener'
 
+  #for debug
   gem "better_errors"
+  gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
+  gem 'pry-doc'    # methodを表示
+  gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
+  gem 'pry-stack_explorer' # スタックをたどれる
+  
+  gem 'dotenv-rails' #環境変数を入れてくれる
 end
 
-group :development, :test do
- gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
- gem 'pry-doc'    # methodを表示
- gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
- gem 'pry-stack_explorer' # スタックをたどれる
- gem 'dotenv-rails' #環境変数を入れてくれる
+group :production do
+    gem 'rails_12factor'
 end
-
-
-gem 'twitter-bootstrap-rails'
-gem "jquery-turbolinks"
-gem "devise"
-gem "faker"
-gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
-gem 'cancan'
-
-gem 'rails_12factor', group: :production

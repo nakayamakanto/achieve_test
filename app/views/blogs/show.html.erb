@@ -10,6 +10,7 @@
                 <p>ユーザー名:<%= @blog.user.name %></p>
                 <p><%= @blog.title %></p>
                 <p><%= @blog.content %></p>
+                <%= profile_img(@blog.user) if profile_img(@blog.user) %><br>
                 <%= link_to "投稿編集", edit_blog_path(@blog.id), class: "btn btn-default btn-success btn-sm" %>
                 <%= link_to "削除", "/blogs/#{@blog.id}", method: :delete, data: {confirm: "この投稿を削除していいのですね？"}, class: "btn btn-default btn-danger btn-sm" %>
             </div>
