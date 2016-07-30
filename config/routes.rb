@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     end
   end
   
-  root "top#index"
+  root :to => "top#index"
 
   match "*path" => "application#handle_404", via: :all
 end
