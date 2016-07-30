@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
           :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
           
    has_many :blogs, dependent: :delete_all
+   has_many :commnet, dependent: :delete_all
    
    def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
      #the pry here generated OAuth2::Error("type":"OAuthException","code":100) by  incorrectly initializing OmniAuth twice, calling config/initializers/omniauth.rb twice.

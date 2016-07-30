@@ -63,6 +63,8 @@ class BlogsController < ApplicationController
     
     def show
         #@blog=Blog.find(params[:id])
+        @comment = @blog.comments.build
+        @comments = @blog.comments
     end
     
     private

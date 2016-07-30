@@ -5,16 +5,24 @@
         
         <%= link_to "新規投稿", new_blog_path, class: "btn btn-default btn-primary btn-block" %>
         
-            <div class="row">
-                <p>ユーザーID:<%= @blog.user_id %></p>
-                <p>ユーザー名:<%= @blog.user.name %></p>
-                <p><%= @blog.title %></p>
-                <p><%= @blog.content %></p>
-                <%= profile_img(@blog.user) if profile_img(@blog.user) %><br>
-                <%= link_to "投稿編集", edit_blog_path(@blog.id), class: "btn btn-default btn-success btn-sm" %>
-                <%= link_to "削除", "/blogs/#{@blog.id}", method: :delete, data: {confirm: "この投稿を削除していいのですね？"}, class: "btn btn-default btn-danger btn-sm" %>
-            </div>
+        <div class="row">
+            <p>ユーザーID:<%= @blog.user_id %></p>
+            <p>ユーザー名:<%= @blog.user.name %></p>
+            <p><%= @blog.title %></p>
+            <p><%= @blog.content %></p>
+            <%= profile_img(@blog.user) if profile_img(@blog.user) %><br>
+            <p>作成時間：<%= @blog.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
+        </div>
+        <p>コメント一覧</p>
+        <div id="comments_area">
+          <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
+        </div>
+        <%= render partial: 'comments/form', locals: { comment: @comment } %>
         <br>
-        <%= link_to "go to index page", blogs_path %> 
+        <% if current_user.id == @blog.user_id %>
+            <%= link_to "投稿編集", edit_blog_path(@blog.id), class: "btn btn-default btn-success btn-sm" %>
+            <%= link_to "削除", "/blogs/#{@blog.id}", method: :delete, data: {confirm: "この投稿を削除していいのですね？"}, class: "btn btn-default btn-danger btn-sm" %>
+        <% end %>
+        <%= link_to "ブログ一覧に戻る", blogs_path %> 
     </div>
 </div>
