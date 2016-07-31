@@ -1,3 +1,19 @@
 img{
   max-width: 100%;
 }
+
+.user_box{
+    display:block;
+    clear: both;
+    padding:20px;
+}
+
+.clearfix:after {  
+     content: ".";   
+     display: block;  
+     clear: both;
+     visibility: hidden;   
+     height: 0.1px;   
+     font-size: 0.1em;   
+     line-height: 0;   
+}  

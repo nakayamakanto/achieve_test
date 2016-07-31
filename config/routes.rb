@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  resources :tasks
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, controllers: {
@@ -10,6 +10,13 @@ Rails.application.routes.draw do
     # sessions: "users/sessions",
     # password: "users/passwords",
   }
+  
+  #"devise_for :users"よりも下に書く！
+  resources :users, only: [:index, :show] do
+    resources :tasks
+  end
+  
+  resources :relationships, only: [:create, :destroy]
   
   resources :blogs do
     resources :comments

@@ -1,0 +1,18 @@
+<div class="container">
+    <h2><%= @user.name %></h2>
+    <h3>この人がフォローしているユーザー</h3>
+    <div class="user_box clearfix">
+        <%= render 'follow_index', users: @users_followed %>
+    </div>
+    <h3>この人のフォロワー</h3>
+    <div class="user_box clearfix">
+        <%= render 'follow_index', users: @followers %>
+    </div>
+    <div class="text-center">
+        <%= link_to "戻る", users_path %>
+    </div>
+</div>
+<div class="bottom-adaptor"></div>
+<div id="page-top-btn" class="page-top-btn">
+    <p><a class="move-page-top" id="move-page-top">▲</a></p>
+</div>
