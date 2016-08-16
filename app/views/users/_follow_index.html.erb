@@ -4,6 +4,17 @@
         <div class="my_email">
           <%= user.email %>
         </div>
-        <%= render 'follow_form', user: user %>
+        <div class="my_name">
+            <%= user.name %>
+        </div>
+        <%= link_to "ユーザーページ", user_path(user.id), class: "btn btn-large btn-primary" %>
+        <% if user.id != current_user.id %>
+          <li>
+            <div class="item">
+              <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+            </div>
+            <%= render partial: 'follow_form', locals: { user: user } %>
+          </li>
+        <% end %>
     </div>
 <% end %>

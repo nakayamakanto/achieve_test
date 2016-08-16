@@ -59,18 +59,30 @@ gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'rmagick'
 
+#pusher
+gem 'pusher'
+
+#一応config
+gem 'config'
+
+group :development do
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   
   # to know if the app sent the mail
   # gem 'letter_opener'
+  
+  #for testing
+  gem "rspec-rails"
+  gem "factory_girl_rails"
 
   #for debug
   gem "better_errors"
@@ -80,6 +92,13 @@ group :development, :test do
   gem 'pry-stack_explorer' # スタックをたどれる
   
   gem 'dotenv-rails' #環境変数を入れてくれる
+end
+
+group :test do
+  gem "capybara"
+  gem "database_cleaner"
+  gem "launchy"
+  gem "selenium-webdriver"
 end
 
 group :production do

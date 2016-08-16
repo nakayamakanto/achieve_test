@@ -1,0 +1,8 @@
+<h4><%= User.find(@conversation.sender_id).name %>さんにメッセージを送りますか？</h4>
+<%= form_for(@conversation) do |f| %>
+    <%= f.hidden_field :sender_id %>
+    <%= f.hidden_field :recipient_id %>
+    <div class="button-panel row">
+      <p><%= f.submit "メッセージを送る", class: "button col-xs-12" %></p>
+    </div>
+<% end %>

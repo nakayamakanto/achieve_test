@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Tasks</h1>
+<br>
+<h1>タスクリスト</h1>
 
 <table>
   <thead>
@@ -26,9 +25,9 @@
         <td><%= task.charge_id %></td>
         <td><%= if task.done? then "完了" else "未完了" end %></td>
         <td><%= task.status == 1? "対応中" : "未着手" %></td>
-        <td><%= link_to 'Show', user_task_path(task.user, task) %></td>
-        <td><%= link_to 'Edit', edit_user_task_path(task.user, task) %></td>
-        <td><%= link_to 'Destroy', user_task_path(task.user, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user_task_path(task.user, task), class: "btn btn-default btn-primary btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_user_task_path(task.user, task), class: "btn btn-default btn-primary btn-sm" %></td>
+        <td><%= link_to 'Destroy', user_task_path(task.user, task), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-danger btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -14,23 +14,35 @@ Rails.application.routes.draw do
   #"devise_for :users"よりも下に書く！
   resources :users, only: [:index, :show] do
     resources :tasks
+    resources :submit_requests, shallow: true do
+      get 'approve'
+      get 'unapprove'
+      get 'reject'
+      collection do
+        get 'inbox'
+      end
+    end
   end
   
   resources :relationships, only: [:create, :destroy]
   
   resources :blogs do
     resources :comments
-
     collection do
       post :confirm
     end
   end
   
-  # post "/blogs/new" => "blogs#confirm"
+  # post "/contacts/new" => "contactss#confirm"
   resources :contacts, only: [:new,:create] do
     collection do
       post :confirm
     end
+  end
+  
+  #conversations/messages/番号という形になる
+  resources :conversations do
+    resources :messages
   end
   
   root :to => "top#index"

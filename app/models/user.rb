@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
    has_many :followed_users, through: :relationships, source: :followed
    has_many :followers, through: :reverse_relationships, source: :follower
    has_many :tasks, dependent: :destroy
+   has_many :submit_requests, dependent: :destroy
    
    def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
      #the pry here generated OAuth2::Error("type":"OAuthException","code":100) by  incorrectly initializing OmniAuth twice, calling config/initializers/omniauth.rb twice.
@@ -75,5 +76,9 @@ class User < ActiveRecord::Base
    
    def self.create_unique_string
      SecureRandom.uuid
+   end
+   
+   def friend
+      followers & followed_users
    end
 end

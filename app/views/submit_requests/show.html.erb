@@ -1,0 +1,14 @@
+<h1>依頼内容</h1>
+<p>依頼者：<%= @submit_request.user.name %></p>
+<p>依頼内容</p>
+<p>タスク名：<%= @submit_request.task.title %></p>
+<p>タスク内容：<%= @submit_request.task.content %></p>
+<p>期限：<%= @submit_request.task.deadline %></p>
+<% if @submit_request.charge_id == current_user.id %>
+    <td>
+        <%= link_to '承認', submit_request_approve_path(@submit_request), remote: true %>
+        <%= link_to '却下', submit_request_unapprove_path(@submit_request), remote: true %>
+        <%= link_to '依頼を却下する', submit_request_reject_path(@submit_request), data: @submit_request.id, remote: true if @submit_request.status == 1 %>
+        <%= link_to '依頼されている一覧に戻る', inbox_user_submit_requests_path(current_user) if user_signed_in? %>
+    </td>
+<% end %>
